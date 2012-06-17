@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="ClearType" content="true">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <title>Star of the West Archive</title>
+
+  <link href="stylesheets/DV/components/reset.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/structure.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/annotations.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/pages.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-header.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-footer.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-menu.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-navigation.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-search.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-text.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-zoom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-annotations.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-document.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-search.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-text.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-thumbnails.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/unsupported.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/minimode.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/themes/plain.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <link href="stylesheets/DV/print.css" media="print" rel="stylesheet" type="text/css" />
+
+  <style>
+    body { margin: 10; }
+  </style>
+
+<script src="javascripts/DV/vendor/jquery-1.5.1.js" type="text/javascript"></script>
+<script src="javascripts/DV/vendor/jquery-ui-1.8.1.custom.min.js" type="text/javascript"></script>
+<script src="javascripts/DV/vendor/underscore.js" type="text/javascript"></script>
+<script src="javascripts/DV/vendor/jquery.acceptInput.js" type="text/javascript"></script>
+<script src="javascripts/DV/vendor/jquery.placeholder.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/initializer.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/history.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/annotation.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/drag_reporter.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/elements.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/page.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/page_set.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/thumbnails.js" type="text/javascript"></script>
+<script src="javascripts/DV/schema/schema.js" type="text/javascript"></script>
+<script src="javascripts/DV/elements/elements.js" type="text/javascript"></script>
+<script src="javascripts/DV/models/annotation.js" type="text/javascript"></script>
+<script src="javascripts/DV/models/chapter.js" type="text/javascript"></script>
+<script src="javascripts/DV/models/document.js" type="text/javascript"></script>
+<script src="javascripts/DV/models/page.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/events.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewAnnotation.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewDocument.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewSearch.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewText.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewThumbnails.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/history.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/navigation.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/helpers.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/annotations.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/construction.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/editor.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/navigation.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/search.js" type="text/javascript"></script>
+<script src="javascripts/DV/states/states.js" type="text/javascript"></script>
+<script src="javascripts/DV/controllers/document_viewer.js" type="text/javascript"></script>
+<script src="javascripts/DV/controllers/api.js" type="text/javascript"></script>
+<script src="assets/templates.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div align = "center">
+<h1>Welcome to the Star of the West Archive</h1>
+
+<p>The Star of the West was a Bahá'í periodical which began publication on March 21, 1910 and ended publication under this title in March 1935.
+The periodical featured translations of some Tablets of 'Abdu'l-Bahá and writings from Shoghi Effendi along with sharing news of the Bahá'í world.
+The text was mostly in English, but also often offered a Persian language section with its own content.</p>
+<p><i>From Wikipedia, the free encyclopedia</i></p>
+
+<center> <img src = /images/local/starquote.gif> </center>
+
+<h2>Select the volume you would like to read or to search </h2>
+<form action="">
+	<div>
+    <select id="volumeSelect">
+        <? for($i = 1;$i < 26; $i++) { ?>
+        <option value="Vol<?= str_pad((int) $i,2,"0",STR_PAD_LEFT) ?>">Volume <?= $i ?>, 19<?= $i+9 ?> - 19<?= $i+10 ?></option>
+        <? } ?>
+	</select>
+	<input type="button" id="buttonSelect" value="Select here" >
+	</div>
+</form>
+<h3>When you have finished with one volume, use your browser's back button to return to this page to select another volume. </h3>
+</div>
+<script type="text/javascript">
+
+// starting volume
+var current_volume = "Vol01";
+
+// once the page is fully loaded, run what's here:
+$(function(){
+  // on button click, run the following:
+  $("#buttonSelect").click(function(){
+    //get the value of the currently selected volume:
+    var vol =  $("#volumeSelect").val();
+	current_volume = vol;
+	// Go to the viewer page
+	// use the name of the window to pass the parameter
+	window.name = current_volume;
+	location.href = 'viewer.erb';
+	    })
+});
+// GLOBALS:
+var sotw_config = {};
+
+</script>
+
+</body>
+</html>

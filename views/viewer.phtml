@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="ClearType" content="true">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <title>Star of the West Archive</title>
+
+  <link href="stylesheets/DV/components/reset.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/structure.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/annotations.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/pages.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-header.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-footer.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-menu.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-navigation.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-search.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-text.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/ui-zoom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-annotations.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-document.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-search.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-text.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/view-thumbnails.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/unsupported.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/components/minimode.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/DV/themes/plain.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <link href="stylesheets/DV/print.css" media="print" rel="stylesheet" type="text/css" />
+
+  <style>
+    body { margin: 10; }
+  </style>
+
+<script src="javascripts/DV/vendor/jquery-1.5.1.js" type="text/javascript"></script>
+<script src="javascripts/DV/vendor/jquery-ui-1.8.1.custom.min.js" type="text/javascript"></script>
+<script src="javascripts/DV/vendor/underscore.js" type="text/javascript"></script>
+<script src="javascripts/DV/vendor/jquery.acceptInput.js" type="text/javascript"></script>
+<script src="javascripts/DV/vendor/jquery.placeholder.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/initializer.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/history.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/annotation.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/drag_reporter.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/elements.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/page.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/page_set.js" type="text/javascript"></script>
+<script src="javascripts/DV/lib/thumbnails.js" type="text/javascript"></script>
+<script src="javascripts/DV/schema/schema.js" type="text/javascript"></script>
+<script src="javascripts/DV/elements/elements.js" type="text/javascript"></script>
+<script src="javascripts/DV/models/annotation.js" type="text/javascript"></script>
+<script src="javascripts/DV/models/chapter.js" type="text/javascript"></script>
+<script src="javascripts/DV/models/document.js" type="text/javascript"></script>
+<script src="javascripts/DV/models/page.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/events.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewAnnotation.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewDocument.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewSearch.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewText.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/ViewThumbnails.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/history.js" type="text/javascript"></script>
+<script src="javascripts/DV/events/navigation.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/helpers.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/annotations.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/construction.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/editor.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/navigation.js" type="text/javascript"></script>
+<script src="javascripts/DV/helpers/search.js" type="text/javascript"></script>
+<script src="javascripts/DV/states/states.js" type="text/javascript"></script>
+<script src="javascripts/DV/controllers/document_viewer.js" type="text/javascript"></script>
+<script src="javascripts/DV/controllers/api.js" type="text/javascript"></script>
+<script src="assets/templates.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div id="document-viewer"></div>
+
+<script type="text/javascript">
+// GLOBALS:
+// lets load sotw_config later...
+var sotw_config = {};
+
+// starting volume
+// use the name of the main window to get the parameter
+current_volume = top.window.name;
+
+// page counts for all volumes:
+var volumes = { "Vol01" : 384,
+				"Vol02" : 328,
+				"Vol03" : 382,
+				"Vol04" : 328,  
+				"Vol05" : 304,
+				"Vol06" : 168,
+				"Vol07" : 196,
+				"Vol08" : 244,
+				"Vol09" : 232,
+				"Vol10" : 356,
+				"Vol11" : 344,
+				"Vol12" : 320,
+				"Vol13" : 352,
+				"Vol14" : 384,
+				"Vol15" : 376,
+				"Vol16" : 384,
+				"Vol17" : 382,
+				"Vol18" : 394,
+				"Vol19" : 374,
+				"Vol20" : 390,
+				"Vol21" : 390,
+				"Vol22" : 390,
+				"Vol23" : 395,
+				"Vol24" : 390,
+				"Vol25" : 399
+};
+
+function reload_sotw_config() {
+  sotw_config = {
+    "title": "Star of the West: "+current_volume+" ",
+    "description": "",
+    "id": "sotw-v01",
+    "pages": volumes[current_volume],
+    "annotations": [],
+    "resources": {
+      "page": {
+          "image": "/"+current_volume+"/{size}/SOTW_"+current_volume+"_{page}.gif",
+          "text": "/"+current_volume+"/text/SOTW_"+current_volume+"_{page}.txt"		
+      },
+    "pdf": "/pdfs/SOTW_"+current_volume+".pdf",
+    "related_story": "http://www.google.com",
+    "search": "/search.json/"+current_volume+"/{query}"
+    },
+  "sections": []
+  };
+}
+// load sotw_config for the first time
+reload_sotw_config();
+//load the document viewer with the proper sotw_config
+ window.currentDocument = DV.load(
+   sotw_config,
+   {container: '#document-viewer'}
+ );
+</script>
+
+</body>
+</html>
